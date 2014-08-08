@@ -33,12 +33,15 @@ class GenreViewController: UITableViewController {
 
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("GenreCell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = "Hello World!"
-        println("ROW: \(indexPath.row)")
-        //println("data: \(self.genreList?.objectAtIndex(indexPath.row))")
-        //var item = self.genreList[indexPath.row] as NSDictionary
-        //var item:NSDictionary = self.genreList.objectAtIndex(indexPath.row) as [String:AnyObject]
-        //println("data: \(item)")
+        
+        if genreList != nil {
+            var item = self.genreList[indexPath.row] as NSDictionary
+            dump(item) // just to show the dictionary in this scenario
+            cell.textLabel.text = item["title"] as String
+        }
+        else {
+            cell.textLabel.text = "Loading..."
+        }
         return cell
     }
     
