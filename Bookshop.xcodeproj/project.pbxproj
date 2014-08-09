@@ -13,6 +13,7 @@
 		D77E9C911994EDF7008FF327 /* BookshopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E9C901994EDF7008FF327 /* BookshopTests.swift */; };
 		D77E9C9D1994EE98008FF327 /* Bookshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E9C9C1994EE98008FF327 /* Bookshop.swift */; };
 		D77E9C9F1994F022008FF327 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77E9C9E1994F022008FF327 /* GenreViewController.swift */; };
+		D78D8FCA1995625800F8711C /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78D8FC91995625800F8711C /* BookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D77E9C901994EDF7008FF327 /* BookshopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookshopTests.swift; sourceTree = "<group>"; };
 		D77E9C9C1994EE98008FF327 /* Bookshop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookshop.swift; sourceTree = "<group>"; };
 		D77E9C9E1994F022008FF327 /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		D78D8FC91995625800F8711C /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				D77E9C7B1994EDF7008FF327 /* Supporting Files */,
 				D77E9C9C1994EE98008FF327 /* Bookshop.swift */,
 				D77E9C9E1994F022008FF327 /* GenreViewController.swift */,
+				D78D8FC91995625800F8711C /* BookViewController.swift */,
 			);
 			path = Bookshop;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77E9C9D1994EE98008FF327 /* Bookshop.swift in Sources */,
+				D78D8FCA1995625800F8711C /* BookViewController.swift in Sources */,
 				D77E9C9F1994F022008FF327 /* GenreViewController.swift in Sources */,
 				D77E9C7E1994EDF7008FF327 /* AppDelegate.swift in Sources */,
 			);
@@ -399,6 +403,7 @@
 				D77E9C961994EDF7008FF327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D77E9C971994EDF7008FF327 /* Build configuration list for PBXNativeTarget "BookshopTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				D77E9C991994EDF7008FF327 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
