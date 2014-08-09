@@ -24,25 +24,27 @@ class GenreViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        if self.genreList != nil {
-            println("Rows in section: \(self.genreList?.objectAtIndex(0))")
-            return self.genreList.count
+        
+        if let genres = self.genreList {
+            return genres.count
         }
-        return 3
+        else {
+            return 0
+        }
     }
 
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("GenreCell", forIndexPath: indexPath) as UITableViewCell
         
-        if genreList != nil {
-            var item = self.genreList[indexPath.row] as NSDictionary
-            dump(item) // just to show the dictionary in this scenario
+        if let genres = self.genreList as? [NSDictionary] {
+            let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("GenreCell", forIndexPath: indexPath) as UITableViewCell
+            var item = genres[indexPath.row]
+            println("item: \(item)")
             cell.textLabel.text = item["title"] as String
+            return cell
         }
         else {
-            cell.textLabel.text = "Loading..."
+            return nil
         }
-        return cell
     }
     
     
@@ -51,49 +53,23 @@ class GenreViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // #pragma mark - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "genreSegue" {
+            println("genreSegue")
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            println("row: \(indexPath.row)")
+            var bookView:BookViewController = segue.destinationViewController as BookViewController
+            
+            if let genres = self.genreList as? [NSDictionary] {
+                var item = genres[indexPath.row]
+                println("segueItem: \(item)")
+                let title:String = item["title"] as String
+                let genreId:Int = item["id"] as Int  // this line crashes the app
+                println("title: \(title)")
+                bookView.genreTitle = item["title"] as String
+                //bookView.genreId = item["id"] as Int  // so I can't test this line
+            }
+        }
     }
-    */
 
 }
